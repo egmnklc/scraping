@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>XPath and CSS Selectors</title>
+</head>
+<!--* Multiple classes/ids .class.class → #id#id-->
+<!--! If an element contains a foreign attribute not included in the HTML markup -->
+<!--!  We can target it by [attributeName="value"]-->
+
+<!--? Value lookup -->
+<!--* Search for substr in the beginning [attributeName^="start"]-->
+<!--* Search for substr in between [attributeName~="between"]-->
+<!--* Search for substr in the end [attributeName$="end"]-->
+
+<!--? Select children with element1 > element2 -->
+<!--? Select elementB immidiately after elementA elementA + elementB -->
+
+<!--? Select all p's after div, does not have to be immidiately after div ~ p -->
+
+<body>
+    <h1>CSS Selectors simplified</h1>
+    <div class="intro"> <!-- div.intro -->
+        <!--* Select p's inside div div.intro p -->
+        <!--* Select all children of div div.intro > p -->
+        <p>
+            I'm paragraph within a div with a class set to intro
+            <!--* Select p's inside div and span inside p div.intro p, span#location -->
+            <span id="location">I'm a span with ID set to location and i'm within a paragraph</span>
+        </p>
+
+        <p id="outside">I'm a paragraph with ID set to outside and i'm within a div with a class set to intro</p>
+    </div>
+
+    
+    <!--* Select p immidiately after the div above ends div.intro + p -->
+    <p>Hi i'm placed immediately after a div with a class set to intro</p>
+
+    <!--* div.intro + span won't work since span isn't immidiately after div -->
+    <span class='intro'>Div with a class attribute set to intro</span>
+    
+    <!--* Select odd ordered children of ul li:nth-child(odd)-->
+    <!--* Select even ordered children of ul li:nth-child(even)-->
+    <ul id="items"> 
+        <!--* From ul select the first child li:nth-child(position) → li:nth-child(1)-->
+        <li data-identifier="7">Item 1</li> <!-- li[data-identifier=7] -->
+        <!--* To select all with data-identifier-7, use [data-identifier=7]-->
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+    </ul>
+
+    <!--* Select only the https a[href^='https']-->
+    <a href="https://www.google.com">Google</a>
+    <!--* Select ones ending with .fr a[href$='fr']-->
+    <a href="http://www.google.fr">Google France</a>
+    <!--* Select ones have google in the middle a[href*='google']-->
+
+    <p class='bold italic'>Hi, I have two classes</p> <!-- .bold.italic -->
+    <p class='bold'>Hi i'm bold</p>
+</body>
+
+</html>
