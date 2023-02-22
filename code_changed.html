@@ -7,7 +7,14 @@
 
 <body>
     <h1>XPath Selectors simplified</h1>
+    <!--* Select div with class intro  //div[@class='intro']/p -->
 
+    <!--* Select all the p elements that are children of div element with attribtues -->
+    <!--*   intro or outro, this provides html tags inside the div element too-->
+    <!--*       //div[@class='intro'] or @class="outro"/p -->
+    <!--*   to only get the text value, add text()-->
+    <!--*       //div[@class='intro'] or @class='outro'/p/text()-->
+    
     <div class="intro">
         <p>
             I'm paragraph within a div with a class set to intro
@@ -23,7 +30,13 @@
     <p>Hi i'm placed immediately after a div</p>
 
     <span class='intro'>Div with a class attribute set to intro</span>
-
+    
+    
+    <!--* Select all li inside ul //ul[@id='items']/li -->
+    <!--* Select first item inside ul //ul[@id='items']/li[1] -->
+    <!--* Select specific items inside ul //ul[@id='items']/li[position() = 1 or position() = 4] -->
+    <!--* Select first and last items inside ul //ul[@id='items']/li[position() = 1 or position() = last()] -->
+    <!--* Select all children of ul except first //ul[@id='items']/li[position() > 1] -->
     <ul id="items">
         <li data-identifier="7">Item 1</li>
         <li>Item 2</li>
@@ -31,6 +44,11 @@
         <li>Item 4</li>
     </ul>
 
+    <!--* Select anchor href from anchor tags //a/@href-->
+    <!--* Select anchor href starting with https from anchor tags //a[starts-with(@href,'https')]-->
+    <!--* Select anchor href ending with fr //a[ends-with(@href, 'fr')] -->
+    <!--* Select anchor href at the middle middle //a[contains(@href, 'google')] -->
+    <!--* Select anchor with France in it//a[contains(text(), 'France')] -->
     <a href="https://www.google.com">Google</a>
     <a href="http://www.google.fr">Google France</a>
 </body>
