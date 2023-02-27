@@ -4,8 +4,11 @@
 <head>
     <title>XPath and CSS Selectors</title>
 </head>
+    <!--? Navigating up in the HTML tree is called preceding (comes before) -->
+    <!--? Two elements are considered as siblings if they share the same parent-->
 
 <body>
+    <!--* Select h1 preceding p with id unique //p[@id='unique/preceding::h1'] -->
     <h1>XPath Selectors simplified</h1>
     <!--* Select div with class intro  //div[@class='intro']/p -->
 
@@ -14,8 +17,10 @@
     <!--*       //div[@class='intro'] or @class="outro"/p -->
     <!--*   to only get the text value, add text()-->
     <!--*       //div[@class='intro'] or @class='outro'/p/text()-->
-    
+
+    <!--* Select div's p children //div[@class='intro']/p  -->
     <div class="intro">
+        <!--* To get brother of p id with outside //p[@id='outside']/preceding-sibling::node() -->
         <p>
             I'm paragraph within a div with a class set to intro
             <span id="location">I'm a span with ID set to location and i'm within a paragraph</span>
@@ -24,19 +29,24 @@
     </div>
 
     <div class="outro">
+        <!--* Select p with an id inside div //p[@id='unique']/parent::div  -->
+        <!--* Select p and automatically detect parent //p[@id='unique']/parent::node()  -->
+        <!--* Select parent and parent of parent //p[@id='unique']/parent::ancestor  -->
+        <!--* Same as above but select  p too//p[@id='unique']/ancestor-or-self::node() -->
+        <!--* Select all the elements that do proceed this p element, excluding ancestors//p[@id='unique'/preceding::node()] -->
         <p id="unique">I'm in a div with a class attribute set to outro</p>
     </div>
 
     <p>Hi i'm placed immediately after a div</p>
 
     <span class='intro'>Div with a class attribute set to intro</span>
-    
-    
+
+
     <!--* Select all li inside ul //ul[@id='items']/li -->
     <!--* Select first item inside ul //ul[@id='items']/li[1] -->
     <!--* Select specific items inside ul //ul[@id='items']/li[position() = 1 or position() = 4] -->
     <!--* Select first and last items inside ul //ul[@id='items']/li[position() = 1 or position() = last()] -->
-    <!--* Select all children of ul except first //ul[@id='items']/li[position() > 1] -->
+    <!--* Select all children of ul except first  //ul[@id='items']/li[position() > 1] -->
     <ul id="items">
         <li data-identifier="7">Item 1</li>
         <li>Item 2</li>
